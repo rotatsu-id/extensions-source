@@ -1,0 +1,76 @@
+name: Sync upstream
+
+on:
+  schedule:
+    - cron: "0 4 * * 1" # weekly, Monday 04:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-upstream
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Open PR syncing shared code from keiyoushi
+    if: github.repository == 'rotatsu-id/extensions-source'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.BOT_PAT }}
+          persist-credentials: true
+
+      - name: Configure git identity
+        run: |
+          git config user.email "323625417+rotatsu-id@users.noreply.github.com"
+          git config user.name "rotatsu-id"
+
+      - name: Add upstream remote
+        run: |
+          git remote add upstream https://github.com/keiyoushi/extensions-source.git
+          git fetch upstream main
+
+      - name: Create sync branch
+        run: |
+          BRANCH="sync-upstream-$(date +%Y%m%d)"
+          echo "BRANCH=$BRANCH" >> "$GITHUB_ENV"
+          git checkout -b "$BRANCH"
+
+      - name: Merge shared paths from upstream
+        run: |
+          git checkout upstream/main -- src/id lib lib-multisrc common core compiler \
+            build.gradle.kts settings.gradle.kts gradle.properties gradle libs.versions.toml \
+            gradlew gradlew.bat 2>/dev/null || true
+
+      - name: Commit changes
+        id: commit
+        run: |
+          git add src/id lib lib-multisrc common core compiler \
+            build.gradle.kts settings.gradle.kts gradle.properties gradle libs.versions.toml \
+            gradlew gradlew.bat 2>/dev/null || true
+          if [ -n "$(git status --porcelain)" ]; then
+            git commit -m "sync: pull src/id and shared build files from keiyoushi/extensions-source"
+            git push origin "$BRANCH"
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Open pull request
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.BOT_PAT }}
+        run: |
+          gh pr create \
+            --repo rotatsu-id/extensions-source \
+            --base main \
+            --head "$BRANCH" \
+            --title "sync: weekly upstream sync from keiyoushi" \
+            --body "Automated weekly sync of src/id, lib, lib-multisrc, common, core, compiler, and shared build files from keiyoushi/extensions-source. Review before merging — .github/ and docs are untouched."
