@@ -1,33 +1,28 @@
-# Keiyoushi Extensions
+# RoTatsu Extensions
 
 ### Please give the repo a :star:
 
-| Build                                                                                                                                                                               | Need Help?                                                                                                                                              |
-|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [![CI](https://github.com/keiyoushi/extensions-source/actions/workflows/build_push.yml/badge.svg)](https://github.com/keiyoushi/extensions-source/actions/workflows/build_push.yml) | [![Discord](https://img.shields.io/discord/1193460528052453448.svg?label=discord&labelColor=7289da&color=2c2f33&style=flat)](https://discord.gg/3FbCpdKbdY) |
+[![CI](https://github.com/rotatsu-id/extensions-source/actions/workflows/build_push.yml/badge.svg)](https://github.com/rotatsu-id/extensions-source/actions/workflows/build_push.yml)
 
 ## Usage
-**If you are new to repository/extensions, please read the [Keiyoushi Getting Started guide](https://keiyoushi.github.io/docs/guides/getting-started#adding-the-extension-repo) first.**
 
-* You can add our repo by visiting the [Keiyoushi Website](https://keiyoushi.github.io/add-repo)
-* Otherwise, copy & paste the following URL: https://github.com/keiyoushi/extensions/raw/repo/index.pb
+If you are new to repositories/extensions, read the [Keiyoushi Getting Started guide](https://keiyoushi.github.io/docs/guides/getting-started#adding-the-extension-repo) first — the setup steps are the same, only the repo URL below differs.
+
+Add the repo by copying this URL into Mihon/Tachiyomi: https://github.com/rotatsu-id/rotatsu-extensions/raw/repo/index.pb
 
 ## Requests
 
-To request a new source or bug fix, [create an issue](https://github.com/keiyoushi/extensions-source/issues/new/choose).
+To request a new source or report a bug, [create an issue](https://github.com/rotatsu-id/extensions-source/issues/new/choose).
 
-Please note that creating an issue does not mean that the source will be added or fixed in a timely
-fashion, because the work is volunteer-based. Some sources may also be impossible to do or prohibitively
-difficult to maintain.
+This is volunteer work, so there's no guaranteed timeline for fixes or new sources. Some sources may be impossible or too hard to maintain.
 
-If you would like to see a request fulfilled and have the necessary skills to do so, consider contributing!
-Issues are up-for-grabs for any developer if there is no assigned user already.
+If you have the skills and want a request fulfilled, feel free to contribute — unassigned issues are open to anyone.
 
 ## Contributing
 
-Contributions are welcome!
+Contributions are welcome. Check the [issue backlog](https://github.com/rotatsu-id/extensions-source/issues) for source requests and bug reports.
 
-Check out the repo's [issue backlog](https://github.com/keiyoushi/extensions-source/issues) for source requests and bug reports.
+This repo is an Indonesian-only fork of [keiyoushi/extensions-source](https://github.com/keiyoushi/extensions-source), kept in sync with upstream changes to shared code and `src/id`.
 
 ## License
 
@@ -47,7 +42,6 @@ Check out the repo's [issue backlog](https://github.com/keiyoushi/extensions-sou
 
 ## Disclaimer
 
-This project does not have any affiliation with the content providers available.
+This project has no affiliation with the content providers it lists.
 
-This project is not affiliated with Mihon/Tachiyomi. Don't ask for help about these extensions at the
-official support means of Mihon/Tachiyomi. All credits to the codebase goes to the original contributors.
+This project is not affiliated with Mihon/Tachiyomi. Don't ask for help with these extensions through Mihon/Tachiyomi's official support channels. Credit for the codebase goes to the original contributors.
