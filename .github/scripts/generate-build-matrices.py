@@ -149,6 +149,12 @@ def resolve_ext(multisrcs: set[str], libs: set[str]) -> set[tuple[str, str]]:
     return extensions
 
 def get_module_list(ref: str) -> tuple[list[str], list[str], list[str]]:
+    if os.getenv("FORCE_ALL_MODULES") == "true":
+        # workflow_dispatch escape hatch: rebuild and republish every module,
+        # bypassing git-diff based change detection entirely.
+        modules, deleted = get_all_modules(ref)
+        return sorted(modules), sorted(deleted), get_all_lint_modules()
+
     diff_output = run_command(f"git diff --name-status {ref}").splitlines()
 
     changed_files = [
