@@ -1,47 +1,93 @@
-# RoTatsu Extensions
+<p align="center">
+  <img src="https://cahyaxyzp.github.io/android-chrome-512x512.png" width="120" alt="Logo RoTatsu">
+</p>
 
-### Please give the repo a :star:
+<h1 align="center">RoTatsu Extensions</h1>
 
-[![CI](https://github.com/CahyaXyZp/extensions-source/actions/workflows/build_push.yml/badge.svg)](https://github.com/CahyaXyZp/extensions-source/actions/workflows/build_push.yml)
+<p align="center">
+  Repositori extension berbahasa Indonesia.
+</p>
 
-## Usage
+<p align="center">
+  <a href="https://github.com/CahyaXyZp/extensions-source/actions/workflows/build_push.yml">
+    <img src="https://github.com/CahyaXyZp/extensions-source/actions/workflows/build_push.yml/badge.svg" alt="CI">
+  </a>
+  <a href="#lisensi">
+    <img src="https://img.shields.io/badge/lisensi-Apache--2.0-blue.svg" alt="License">
+  </a>
+</p>
 
-If you are new to repositories/extensions, read the [Keiyoushi Getting Started guide](https://keiyoushi.github.io/docs/guides/getting-started#adding-the-extension-repo) first — the setup steps are the same, only the repo URL below differs.
+---
 
-Add the repo by copying this URL into Mihon/Tachiyomi: https://github.com/CahyaXyZp/rotatsu-extensions/raw/repo/index.pb
+## Menambahkan Repository ke Aplikasi
 
-## Requests
+Baru pertama kali menggunakan repository extension? Baca [Panduan](https://cahyaxyzp.github.io/docs/guides/getting-started) terlebih dahulu.
 
-To request a new source or report a bug, [create an issue](https://github.com/CahyaXyZp/extensions-source/issues/new/choose).
+<p align="center">
+  <a href="https://cahyaxyzp.github.io/add-repo">
+    <img
+      src="https://img.shields.io/badge/Add%20Repository-RoTatsu-5E35B1?style=for-the-badge"
+      alt="Add Repository"
+      width="100%"
+    >
+  </a>
+</p>
 
-This is volunteer work, so there's no guaranteed timeline for fixes or new sources. Some sources may be impossible or too hard to maintain.
+```text
+https://github.com/CahyaXyZp/rotatsu-extensions/raw/repo/index.pb
+```
 
-If you have the skills and want a request fulfilled, feel free to contribute — unassigned issues are open to anyone.
+## Menemukan Bug atau Ingin Request Source?
 
-## Contributing
+Jika menemukan bug atau ingin meminta penambahan source baru, [buka issue di repo keiyoushi](https://github.com/keiyoushi/extensions-source/issues/new/choose).
 
-Contributions are welcome. Check the [issue backlog](https://github.com/CahyaXyZp/extensions-source/issues) for source requests and bug reports.
+> [!NOTE]
+> Membuka issue wajib menggunakan **bahasa Inggris** agar dapat dipahami oleh seluruh kontributor.
 
-This repo is an Indonesian-only fork of [keiyoushi/extensions-source](https://github.com/keiyoushi/extensions-source), kept in sync with upstream changes to shared code and `src/id`.
+## Kontribusi
 
-## License
+Ingin membantu menambahkan atau memperbaiki source? Kontribusi terbuka untuk siapa saja.
 
-    Copyright 2015 Javier Tomás
+Sebelum membuat perubahan, pastikan untuk:
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+1. Memeriksa [daftar issue](https://github.com/keiyoushi/extensions-source/issues) agar tidak mengerjakan hal yang sama dengan kontributor lain.
+2. Membaca [panduan contributing Keiyoushi](https://github.com/keiyoushi/extensions-source/blob/main/CONTRIBUTING.md).
+3. Mengikuti struktur, konvensi, dan standar kode yang digunakan oleh repository upstream.
+
+> [!IMPORTANT]
+> Kontribusi yang ditujukan untuk repository upstream harus mengikuti panduan dan bahasa yang ditetapkan oleh upstream.
+
+Repository ini mengikuti konvensi yang sama dengan Keiyoushi, dengan penyesuaian pada dokumentasi dan bahasa untuk pengguna Indonesia.
+
+## Tentang Repository
+
+Repository ini merupakan fork khusus bahasa Indonesia dari [keiyoushi/extensions-source](https://github.com/keiyoushi/extensions-source).
+
+Kode dari upstream disinkronkan secara berkala untuk menjaga repository tetap mengikuti perkembangan terbaru.
+
+Perubahan dan penyesuaian khusus bahasa Indonesia dapat diterapkan pada repository ini tanpa mengubah repository upstream.
+
+## Lisensi
+
+```text
+Copyright 2015 Javier Tomás
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
     http://www.apache.org/licenses/LICENSE-2.0
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
 
 ## Disclaimer
 
-This project has no affiliation with the content providers it lists.
+> [!WARNING]
+> This project is not affiliated with any of the content providers listed within.
 
-This project is not affiliated with Mihon/Tachiyomi. Don't ask for help with these extensions through Mihon/Tachiyomi's official support channels. Credit for the codebase goes to the original contributors.
+Credit and copyright to the original codebase remain with contributor Keiyoushi.
