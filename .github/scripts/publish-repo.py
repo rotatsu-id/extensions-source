@@ -18,7 +18,7 @@ ARTIFACTS_DIR = Path.home() / "apk-artifacts"
 # The checked-out `repo` branch we publish into (the working directory).
 REPO_DIR = Path.cwd()
 
-ICON_BASE_URL = "https://cdn.jsdelivr.net/gh/rotatsu-id/extensions-source@main"
+ICON_BASE_URL = "https://cdn.jsdelivr.net/gh/CahyaXyZp/extensions-source@main"
 RELEASE_BASE_URL = f"https://github.com/{REPO_NAME}/releases/download"
 ASSET_LIMIT = 495  # Actual limit is 1000 but we upload 2 items per extension.
 UPLOAD_CHUNK_SIZE = 80
@@ -187,7 +187,7 @@ index = index_pb2.Index(
     badgeLabel="RTS",
     signingKey="1abce2f2fe4e905806d0a9d1e68f97b98cd255fe3253d6fce0c91992267878fd",
     contact=index_pb2.Contact(
-        website="https://github.com/rotatsu-id/rotatsu-extensions",
+        website="https://github.com/CahyaXyZp/rotatsu-extensions",
     ),
     extensionList=index_pb2.ExtensionList(extensions=final_extensions),
 )
@@ -248,7 +248,7 @@ def create_release(tag: str):
         "--title",
         f"Repository Update {tag}",
         "--notes",
-        f"Automated update from rotatsu-id/extensions-source@{current_sha}",
+        f"Automated update from CahyaXyZp/extensions-source@{current_sha}",
     )
 
 
