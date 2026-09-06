@@ -16,7 +16,7 @@ concurrency:
 jobs:
   sync:
     name: Open PR syncing shared code from keiyoushi
-    if: github.repository == 'rotatsu-id/extensions-source'
+    if: github.repository == 'CahyaXyZp/extensions-source'
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -29,8 +29,8 @@ jobs:
 
       - name: Configure git identity
         run: |
-          git config user.email "323625417+rotatsu-id@users.noreply.github.com"
-          git config user.name "rotatsu-id"
+          git config user.email "323625417+CahyaXyZp@users.noreply.github.com"
+          git config user.name "CahyaXyZp"
 
       - name: Add upstream remote
         run: |
@@ -69,7 +69,7 @@ jobs:
           GH_TOKEN: ${{ secrets.BOT_PAT }}
         run: |
           gh pr create \
-            --repo rotatsu-id/extensions-source \
+            --repo CahyaXyZp/extensions-source \
             --base main \
             --head "$BRANCH" \
             --title "sync: weekly upstream sync from keiyoushi" \
