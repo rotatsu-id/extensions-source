@@ -15,7 +15,7 @@ concurrency:
 jobs:
   cleanup:
     name: Remove unreferenced release assets
-    if: github.repository == 'rotatsu-id/extensions-source'
+    if: github.repository == 'CahyaXyZp/extensions-source'
     runs-on: ubuntu-latest
     timeout-minutes: 240
     steps:
