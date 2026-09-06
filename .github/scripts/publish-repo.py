@@ -180,7 +180,44 @@ final_extensions.extend(
     if not any(ext.packageName.endswith(f".{module}") for module in to_delete)
 )
 final_extensions.extend(ext for ext, _, _, _, _ in new_extensions)
+
+# Safety net: this is an Indonesian-only repo. Package names follow
+# eu.kanade.tachiyomi.extension.<lang>.<module>, so any extension whose lang segment
+# isn't "id" is stale (e.g. carried over from the original keiyoushi index when this
+# repo was forked) and must never be published, regardless of what git-diff deletion
+# detection did or didn't catch.
+KEEP_LANG = "id"
+final_extensions = [
+    ext for ext in final_extensions if ext.packageName.split(".")[4:5] == [KEEP_LANG]
+]
+
 final_extensions.sort(key=lambda ext: ext.packageName)
+
+kept_package_names = {ext.packageName for ext in final_extensions}
+updated_release_assets = {
+    package_name: assets
+    for package_name, assets in updated_release_assets.items()
+    if package_name in kept_package_names
+}
+
+# Safety net: apkUrl/jarUrl for extensions that weren't rebuilt this run (identical output,
+# e.g. from reproducible builds) are carried over verbatim from the previously published index.
+# If the repo owner ever changes (as it did: rotatsu-id -> CahyaXyZp), those stale URLs silently
+# point at the old owner. GitHub's account-rename redirect doesn't reliably survive every client,
+# and worse, cleanup-releases.py compares these URLs against the *current* owner's real asset
+# URLs to decide what's "unreferenced" -- a stale owner here makes it think every release is
+# orphaned and delete them all. So every URL is always rewritten to the current RELEASE_BASE_URL,
+# keeping only the release tag and filename from whatever was there before.
+def rehost(url: str) -> str:
+    tag, filename = url.rsplit("/", 2)[-2:]
+    return f"{RELEASE_BASE_URL}/{tag}/{filename}"
+
+
+for ext in final_extensions:
+    if ext.resources.apkUrl:
+        ext.resources.apkUrl = rehost(ext.resources.apkUrl)
+    if ext.resources.jarUrl:
+        ext.resources.jarUrl = rehost(ext.resources.jarUrl)
 
 index = index_pb2.Index(
     name="RoTatsu",
