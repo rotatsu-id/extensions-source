@@ -4,7 +4,7 @@ from datetime import UTC, datetime, timedelta
 
 from github_utils import REPO_NAME, run_gh
 
-SOURCE_REPO = "rotatsu-id/extensions-source"
+SOURCE_REPO = "CahyaXyZp/extensions-source"
 PUBLISH_WORKFLOW = "build_push.yml"
 PUBLISH_JOB = "Publish extension repo"
 MIN_PUBLISH_AGE = timedelta(hours=1)
